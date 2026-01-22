@@ -1,0 +1,13 @@
+Package: tisai
+Title: AI enabled time series and spacial statistics
+Version: 0.0.1
+Author: Xu Liu [aut,cre]
+Maintainer: Xu Liu <liu.xu@sufe.edu.cn>
+Description: Datasets used in the book "AI enabled time series and spacial statistics"
+License: GPL (>=2)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Depends: R (>= 3.5.0)
+Imports: Matrix, glmnet
+LazyData: true
