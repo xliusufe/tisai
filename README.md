@@ -7,7 +7,7 @@ This package contains datasets used in the book "AI enabled time series and spac
 You can install the package from GitHub using:
 
 ```r
-devtools::install_github("yourusername/tisai")
+devtools::install_github("xliusufe/tisai")
 ```
 
 ## Datasets
