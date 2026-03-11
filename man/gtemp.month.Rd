@@ -5,12 +5,8 @@
 \alias{gtemp.month}
 \title{Global Temperature Monthly Data}
 \format{
-A data frame with 12 rows (months) and 49 columns (years from 1975 to 2023):
-\itemize{
-\item Rows: Represent months (1 = January, 2 = February, ..., 12 = December)
-\item Columns: Represent years from 1975 to 2023
-\item Values: Monthly global average temperatures in degrees Celsius
-}
+A data frame with 12 rows (months) and 49 columns (years from 1975 to 2023).
+Each cell contains the average temperature for that month and year.
 }
 \source{
 Package 'astsa' available at \href{https://nickpoison.github.io/}{https://nickpoison.github.io/}
@@ -19,14 +15,15 @@ Package 'astsa' available at \href{https://nickpoison.github.io/}{https://nickpo
 data(gtemp.month)
 }
 \description{
-Global average monthly temperature data covering the period from 1975 to 2023. This dataset provides global temperature measurements, including both land and ocean surface temperatures, and is widely used for climate change research and time series analysis.
+Global temperature monthly data from the book "AI enabled time series and spacial statistics"
 }
 \details{
 Global temperature monthly data
 
-This dataset contains global monthly temperature data from 1975 to 2023.
+This dataset contains global temperature monthly data from the book "AI enabled time series and spacial statistics".
 
-The gtemp.month dataset provides monthly global temperature data from 1975 to 2023. It is commonly used to study climate change trends, seasonal variations, and long-term temperature patterns. The data includes measurements from both land and ocean surfaces, providing a comprehensive view of global temperature changes over time.
+The gtemp.month dataset provides monthly global temperature data from 1975 to 2023.
+Rows represent months (1-12) and columns represent years. This dataset is often used in climate change analysis and time series modeling.
 }
 \examples{
 data(gtemp.month)
@@ -37,17 +34,10 @@ gtemp_t <- t(gtemp.month)
 # Plot the temperature data for January
 plot(rownames(gtemp_t), gtemp_t[, 1], type = "l", 
      main = "January Global Temperature",
-     xlab = "Year", ylab = "Temperature (°C)", 
+     xlab = "Year", ylab = "Temperature", 
      col = "blue")
 
 # Calculate summary statistics for each month
 apply(gtemp.month, 1, summary)
-
-# Plot average temperature across all months for each year
-annual_avg <- colMeans(gtemp.month)
-plot(names(annual_avg), annual_avg, type = "l",
-     main = "Annual Average Global Temperature",
-     xlab = "Year", ylab = "Temperature (°C)",
-     col = "red")
 }
 \keyword{datasets}

@@ -3,26 +3,26 @@
 \docType{data}
 \name{lap}
 \alias{lap}
-\title{Los Angeles Pollution and Mortality Data}
+\title{Local Area Pollution (LAP) Data}
 \format{
 A multivariate time series (mts) object with the following characteristics:
 \itemize{
-\item Time period: 1970 - 1979
+\item Time period: 1970 - 1980
 \item Frequency: Weekly (52 observations per year)
 \item Number of variables: 11
 \item Variables:
 \itemize{
-\item tmort: Total mortality rate (per 100,000 people per week)
-\item rmort: Respiratory mortality rate (per 100,000 people per week)
-\item cmort: Cardiovascular mortality rate (per 100,000 people per week)
-\item tempr: Temperature (degrees Fahrenheit)
-\item rh: Relative humidity (percentage)
-\item co: Carbon monoxide concentration (ppm)
-\item so2: Sulfur dioxide concentration (ppm)
-\item no2: Nitrogen dioxide concentration (ppm)
-\item hycarb: Hydrocarbon concentration (ppm)
-\item o3: Ozone concentration (ppm)
-\item part: Particulate matter concentration (ppm)
+\item tmort: Total mortality
+\item rmort: Respiratory mortality
+\item cmort: Cardiovascular mortality
+\item tempr: Temperature
+\item rh: Relative humidity
+\item co: Carbon monoxide
+\item so2: Sulfur dioxide
+\item no2: Nitrogen dioxide
+\item hycarb: Hydrocarbons
+\item o3: Ozone
+\item part: Particulate matter
 }
 }
 }
@@ -33,32 +33,29 @@ Package 'astsa' available at \href{https://nickpoison.github.io/}{https://nickpo
 data(lap)
 }
 \description{
-Pollution and mortality data from Los Angeles, California, covering the period from 1970 to 1979. This dataset contains weekly mortality rates and associated pollutant concentrations, and is used to study the relationship between air pollution and public health, particularly cardiovascular and respiratory diseases.
+LAP data from the book "AI enabled time series and spacial statistics"
 }
 \details{
 LAP data
 
-This dataset contains pollution and mortality data from Los Angeles, California, from 1970 to 1979.
+This dataset contains LAP (Local Area Pollution) data from the book "AI enabled time series and spacial statistics".
 
-The lap dataset provides weekly measurements of various pollution and health indicators from Los Angeles, California, from 1970 to 1979. It is commonly used in environmental health studies to analyze the effects of pollution on mortality, particularly for cardiovascular and respiratory diseases. The dataset includes measurements of multiple pollutants along with mortality rates, allowing researchers to investigate the relationships between specific pollutants and health outcomes.
+The lap dataset provides weekly measurements of various pollution and health indicators from 1970 to 1980.
+This dataset is often used in environmental health studies and time series analysis of pollution effects.
 }
 \examples{
 data(lap)
 
-# Plot total mortality over time
-plot(lap[, "tmort"], main = "Total Mortality in Los Angeles", 
-     xlab = "Time", ylab = "Mortality Rate (per 100,000 per week)", 
+# Plot the first variable (total mortality)
+plot(lap[, 1], main = "Total Mortality", 
+     xlab = "Time", ylab = "Mortality Rate", 
      col = "red")
 
-# Calculate correlation between ozone and cardiovascular mortality
-cor(lap[, "o3"], lap[, "cmort"], use = "complete.obs")
+# Calculate correlation between temperature and ozone
+cor(lap[, "tempr"], lap[, "o3"], use = "complete.obs")
 
-# Plot mortality rates together
-plot(lap[, c("tmort", "rmort", "cmort")], 
-     main = "Mortality Rates in Los Angeles")
-
-# Plot pollutants together
-plot(lap[, c("co", "so2", "no2", "o3")], 
-     main = "Pollutant Concentrations in Los Angeles")
+# Plot multiple variables
+plot(lap[, c("tempr", "o3", "co")], 
+     main = "Temperature, Ozone, and Carbon Monoxide")
 }
 \keyword{datasets}

@@ -1,1 +1,3 @@
 exportPattern("^[^\\.]")
+export(get_USmarket_data)
+export(get_CNmarket_data)

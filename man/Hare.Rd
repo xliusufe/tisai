@@ -3,13 +3,13 @@
 \docType{data}
 \name{Hare}
 \alias{Hare}
-\title{Snowshoe Hare Population Data}
+\title{Hare Population Data}
 \format{
 A time series object with the following characteristics:
 \itemize{
 \item Time period: 1845 - 1935
 \item Frequency: Annual
-\item Values: Number of snowshoe hare pelts traded (in thousands)
+\item Values: Hare population counts
 }
 }
 \source{
@@ -19,21 +19,21 @@ Package 'astsa' available at \href{https://nickpoison.github.io/}{https://nickpo
 data(Hare)
 }
 \description{
-Snowshoe hare population data from the Hudson's Bay Company records, covering the period from 1845 to 1935. This classic dataset is widely used for studying predator-prey population dynamics.
+Hare population data from the book "AI enabled time series and spacial statistics"
 }
 \details{
 Hare population data
 
-This dataset contains snowshoe hare population data collected by the Hudson's Bay Company.
+This dataset contains hare population data from the book "AI enabled time series and spacial statistics".
 
-The Hare dataset provides annual counts of snowshoe hare pelts traded by the Hudson's Bay Company from 1845 to 1935. This dataset, along with the Lynx dataset, forms a classic example of predator-prey population dynamics and is commonly used in time series analysis and ecological modeling.
+The Hare dataset provides annual population counts of hares from 1845 to 1935. This dataset is often used in time series analysis and population dynamics studies.
 }
 \examples{
 data(Hare)
 
 # Plot the hare population data
-plot(Hare, main = "Snowshoe Hare Population Data", 
-     xlab = "Year", ylab = "Pelts Traded (thousands)", 
+plot(Hare, main = "Hare Population Data", 
+     xlab = "Year", ylab = "Population", 
      col = "blue")
 
 # Calculate summary statistics

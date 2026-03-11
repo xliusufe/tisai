@@ -3,13 +3,13 @@
 \docType{data}
 \name{Lynx}
 \alias{Lynx}
-\title{Canadian Lynx Population Data}
+\title{Lynx Population Data}
 \format{
 A time series object with the following characteristics:
 \itemize{
 \item Time period: 1845 - 1935
 \item Frequency: Annual
-\item Values: Number of lynx pelts traded (in thousands)
+\item Values: Lynx population counts
 }
 }
 \source{
@@ -19,32 +19,24 @@ Package 'astsa' available at \href{https://nickpoison.github.io/}{https://nickpo
 data(Lynx)
 }
 \description{
-Canadian lynx population data from the Hudson's Bay Company records, covering the period from 1845 to 1935. This classic dataset is widely used for studying predator-prey population dynamics alongside the Hare dataset.
+Lynx population data from the book "AI enabled time series and spacial statistics"
 }
 \details{
 Lynx population data
 
-This dataset contains Canadian lynx population data collected by the Hudson's Bay Company.
+This dataset contains lynx population data from the book "AI enabled time series and spacial statistics".
 
-The Lynx dataset provides annual counts of Canadian lynx pelts traded by the Hudson's Bay Company from 1845 to 1935. Together with the Hare dataset, this forms a classic example of predator-prey population dynamics, where lynx (predators) and snowshoe hares (prey) exhibit cyclical population fluctuations.
+The Lynx dataset provides annual population counts of lynx from 1845 to 1935. This dataset is often used in time series analysis and predator-prey relationship studies.
 }
 \examples{
 data(Lynx)
 
 # Plot the lynx population data
-plot(Lynx, main = "Canadian Lynx Population Data", 
-     xlab = "Year", ylab = "Pelts Traded (thousands)", 
+plot(Lynx, main = "Lynx Population Data", 
+     xlab = "Year", ylab = "Population", 
      col = "red")
 
 # Calculate summary statistics
 summary(Lynx)
-
-# Plot both hare and lynx populations together
-plot(Hare, main = "Hare and Lynx Population Dynamics", 
-     xlab = "Year", ylab = "Pelts Traded (thousands)", 
-     col = "blue", ylim = c(0, max(Hare, Lynx)))
-lines(Lynx, col = "red")
-legend("topleft", legend = c("Hare", "Lynx"), 
-       col = c("blue", "red"), lty = 1)
 }
 \keyword{datasets}
