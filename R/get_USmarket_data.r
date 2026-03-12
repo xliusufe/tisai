@@ -18,6 +18,12 @@
 #'   the resulting data object as an `.rda` file. If `NULL`, the data are not
 #'   saved to disk.
 #'
+#' @section Disclaimer:
+#' This function is for **educational and research purposes only**. The data 
+#' is retrieved from Yahoo Finance. This package and its authors have no 
+#' affiliation with Yahoo Inc. Please refer to Yahoo's Terms of Service 
+#' for data usage restrictions.
+#' 
 #' @return A data frame containing aligned daily adjusted closing prices for
 #'   the selected market series. The first column is `date`, followed by the
 #'   downloaded market variables.

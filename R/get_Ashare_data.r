@@ -10,6 +10,7 @@
 #' @param tickers A character vector of Yahoo Finance ticker symbols,
 #'   such as `c("600000.SS", "600036.SS", "000001.SZ")`.
 #'   If `NULL`, the function will try to use the built-in ticker table.
+#' 
 #' @param from Start date in `"YYYY-MM-DD"` format.
 #'   Default is `"2018-01-01"`.
 #' @param to End date in `"YYYY-MM-DD"` format.
@@ -20,6 +21,12 @@
 #'   It should include at least a column named `ticker`, and may also
 #'   include `name` and `market`.
 #'
+#' @section Disclaimer:
+#' This function is for **educational and research purposes only**. The data 
+#' is retrieved from Yahoo Finance. This package and its authors have no 
+#' affiliation with Yahoo Inc. Please refer to Yahoo's Terms of Service 
+#' for data usage restrictions.
+#' 
 #' @return A long-format data frame with columns:
 #' \describe{
 #'   \item{date}{Trading date.}
