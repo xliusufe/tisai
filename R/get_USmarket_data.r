@@ -4,7 +4,7 @@
 #' financial market assets from Yahoo Finance, aligns trading dates across
 #' markets, and returns a data frame.
 #'
-#' The default series include the S\&P 500 index, Nasdaq Composite index,
+#' The default series include the S and P 500 index, Nasdaq Composite index,
 #' U.S. dollar index, and gold futures price.
 #'
 #' @param from A character string specifying the start date in `"YYYY-MM-DD"`
@@ -36,7 +36,7 @@
 #'
 #' The default symbols are:
 #' \describe{
-#'   \item{sp500}{S\&P 500 Index (`^GSPC`)}
+#'   \item{sp500}{S and P 500 Index (`^GSPC`)}
 #'   \item{nasdaq}{Nasdaq Composite Index (`^IXIC`)}
 #'   \item{dxy}{U.S. Dollar Index (`DX-Y.NYB`)}
 #'   \item{gold}{Gold Futures (`GC=F`)}

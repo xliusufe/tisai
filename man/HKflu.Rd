@@ -9,7 +9,7 @@
 }
 \usage{data(HKflu)}
 \format{
-  A data frame with 365 observations on the following 11 variables:
+  A data frame with 365 observations on the following 14 variables:
   \describe{
     \item{\code{week}}{A numeric vector indicating the sequence of monitored weeks.}
     \item{\code{influenza}}{Influenza intensity, measured as the number of laboratory-confirmed influenza cases per 1,000 recorded consultations.}
@@ -22,6 +22,9 @@
     \item{\code{O3}}{Ozone ($O_3$) daily average concentration.}
     \item{\code{temperature}}{Weekly average temperature in degrees Celsius.}
     \item{\code{humidity}}{Weekly average relative humidity percentage.}
+    \item{\code{start}}{Start date of the surveillance week.}
+    \item{\code{end}}{End date of the surveillance week.}
+    \item{\code{wee}}{Week index retained from the original source file.}
   }
 }
 \source{

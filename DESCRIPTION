@@ -1,13 +1,17 @@
 Package: tisai
-Title: AI Enabled Time Series and Spatial Statistics
+Title: Datasets and Utilities for AI-Enabled Time Series and Spatial Statistics
 Version: 0.0.1
 Author: Xu Liu [aut, cre]
 Maintainer: Xu Liu <liu.xu@sufe.edu.cn>
-Description: Datasets used in the book "AI enabled time series and spacial statistics"
+Description: Provides datasets and helper functions used in the book
+    "AI Enabled Time Series and Spatial Statistics".
 License: GPL (>=2)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Depends: R (>= 3.5.0)
-Imports:Matrix,glmnet,quantmod,dplyr,zoo
+Imports:
+    dplyr,
+    quantmod,
+    zoo
 LazyData: true

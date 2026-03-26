@@ -37,7 +37,7 @@ financial market assets from Yahoo Finance, aligns trading dates across
 markets, and returns a data frame.
 }
 \details{
-The default series include the S\&P 500 index, Nasdaq Composite index,
+The default series include the S and P 500 index, Nasdaq Composite index,
 U.S. dollar index, and gold futures price.
 
 The function retrieves market data from Yahoo Finance via
@@ -47,7 +47,7 @@ that only common trading days are retained.
 
 The default symbols are:
 \describe{
-\item{sp500}{S\&P 500 Index (\verb{^GSPC})}
+\item{sp500}{S and P 500 Index (\verb{^GSPC})}
 \item{nasdaq}{Nasdaq Composite Index (\verb{^IXIC})}
 \item{dxy}{U.S. Dollar Index (\code{DX-Y.NYB})}
 \item{gold}{Gold Futures (\code{GC=F})}

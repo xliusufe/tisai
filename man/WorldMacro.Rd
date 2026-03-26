@@ -11,6 +11,8 @@ including GDP per capita, population, and inflation rate.
 A data frame containing:
 \describe{
   \item{\code{country}}{Country name.}
+  \item{\code{iso2c}}{Two-letter country code.}
+  \item{\code{iso3c}}{Three-letter country code.}
   \item{\code{year}}{Year.}
   \item{\code{gdp_pc}}{GDP per capita (constant USD).}
   \item{\code{population}}{Total population.}

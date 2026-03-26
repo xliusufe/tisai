@@ -37,6 +37,19 @@
 #'   \item{ret}{Daily log return.}
 #' }
 #'
+#' @examples
+#' \dontrun{
+#' data(Ashare)
+#'
+#' panel <- get_Ashare_data(
+#'   tickers = Ashare$ticker[1:5],
+#'   from = "2020-01-01",
+#'   to = "2024-12-31"
+#' )
+#'
+#' head(panel)
+#' }
+#'
 #' @export
 get_Ashare_data <- function(tickers = NULL,
                             from = "2018-01-01",

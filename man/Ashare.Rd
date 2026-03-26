@@ -21,6 +21,7 @@ Yahoo Finance symbol convention for Chinese A-share listed companies:
 }
 
 \examples{
+\dontrun{
 data(Ashare)
 
 ## download panel data for selected A-share stocks
@@ -31,5 +32,6 @@ panel <- get_Ashare_data(
 )
 
 head(panel)
+}
 }
 \keyword{datasets}
