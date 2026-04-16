@@ -2,61 +2,74 @@
 % Please edit documentation in R/get_USmarket_data.r
 \name{get_USmarket_data}
 \alias{get_USmarket_data}
-\title{Download global financial market data from Yahoo Finance}
+\title{Download global financial market data from FRED}
 \usage{
 get_USmarket_data(
   from = "2018-01-01",
-  to = "2025-12-31",
-  symbols = NULL,
-  save_path = NULL
+  to = as.character(Sys.Date()),
+  series = NULL,
+  save_path = NULL,
+  na_rm = TRUE
 )
 }
 \arguments{
 \item{from}{A character string specifying the start date in \code{"YYYY-MM-DD"}
-format. The default is \code{"2018-01-01"}.}
+format. Default is \code{"2018-01-01"}.}
 
 \item{to}{A character string specifying the end date in \code{"YYYY-MM-DD"}
-format. The default is \code{"2025-12-31"}.}
+format. Default is \code{Sys.Date()}.}
 
-\item{symbols}{An optional named character vector of Yahoo Finance symbols.
-The names of this vector will be used as the output variable names. If
-\code{NULL}, a default set of symbols is used.}
+\item{series}{A named character vector of FRED series IDs. The names will be
+used as output variable names. If \code{NULL}, a default set of market series is
+used.}
 
 \item{save_path}{An optional character string giving the file path to save
-the resulting data object as an \code{.rda} file. If \code{NULL}, the data are not
-saved to disk.}
+the resulting object as an \code{.rda} file. If \code{NULL}, the data are not saved.}
+
+\item{na_rm}{Logical. If \code{TRUE}, rows with any missing values are removed
+after alignment. Default is \code{TRUE}.}
 }
 \value{
-A data frame containing aligned daily adjusted closing prices for
-the selected market series. The first column is \code{date}, followed by the
-downloaded market variables.
+A data frame containing aligned daily series. The first column is
+\code{date}, followed by the selected market variables.
 }
 \description{
-This function downloads daily adjusted closing prices for major global
-financial market assets from Yahoo Finance, aligns trading dates across
-markets, and returns a data frame.
+This function downloads daily financial market series from FRED, aligns dates
+across selected series, and returns a synchronized data frame.
 }
 \details{
-The default series include the S and P 500 index, Nasdaq Composite index,
-U.S. dollar index, and gold futures price.
-
-The function retrieves market data from Yahoo Finance via
-\code{quantmod::getSymbols()}. Since different markets may have different trading
-calendars, the downloaded series are aligned by date using inner joins, so
-that only common trading days are retained.
-
-The default symbols are:
+By default, the function downloads:
 \describe{
-\item{sp500}{S and P 500 Index (\verb{^GSPC})}
-\item{nasdaq}{Nasdaq Composite Index (\verb{^IXIC})}
-\item{dxy}{U.S. Dollar Index (\code{DX-Y.NYB})}
-\item{gold}{Gold Futures (\code{GC=F})}
+\item{sp500}{S&P 500 index (\code{SP500})}
+\item{nasdaq}{NASDAQ Composite index (\code{NASDAQCOM})}
+\item{usd_index}{Nominal Broad U.S. Dollar Index (\code{DTWEXBGS})}
 }
+
+Users may also provide additional or alternative FRED series IDs through
+the \code{series} argument.
+
+The function downloads each series from FRED via the public CSV endpoint:
+\code{https://fred.stlouisfed.org/graph/fredgraph.csv?id=SERIES_ID}.
+
+Since different series may have different release calendars or missing dates,
+the downloaded data are merged by \code{date}. If \code{na_rm = TRUE}, only dates with
+complete observations across all selected series are retained.
+
+The returned object includes the following attributes:
+\describe{
+\item{source}{\code{"FRED"}}
+\item{series_map}{Named character vector of downloaded FRED series IDs}
+\item{download_date}{System date when the function was run}
+}
+}
+\section{Copyright and data source note}{
+This function downloads data from FRED for educational and research use.
+FRED aggregates series from different original providers. Users should check
+the original source and licensing terms of each selected series before
+redistributing the data in books, packages, or other published materials.
 }
 \examples{
 \dontrun{
-library(tisai)
-
 USmarket <- get_USmarket_data()
 head(USmarket)
 
@@ -66,8 +79,16 @@ USmarket2 <- get_USmarket_data(
 )
 
 USmarket3 <- get_USmarket_data(
+  series = c(
+    sp500     = "SP500",
+    nasdaq    = "NASDAQCOM",
+    usd_index = "DTWEXBGS",
+    vix       = "VIXCLS"
+  )
+)
+
+USmarket4 <- get_USmarket_data(
   save_path = "USmarket.rda"
 )
 }
-
 }
