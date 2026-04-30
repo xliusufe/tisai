@@ -4,20 +4,21 @@
 \title{Selected Chinese A-Share Stock Tickers}
 \description{
 A list of representative Chinese A-share listed companies used for
-constructing panel stock return data from Yahoo Finance.
+constructing panel stock return data through AKShare.
 }
 \usage{data(Ashare)}
 \format{
 A data frame containing stock tickers of selected A-share companies:
 \describe{
-  \item{\code{ticker}}{Yahoo Finance ticker symbol.}
+  \item{\code{ticker}}{A-share ticker symbol stored in the common
+  \code{.SS}/\code{.SZ} style.}
   \item{\code{name}}{Company name.}
   \item{\code{market}}{Exchange code: SSE or SZSE.}
 }
 }
 \source{
-Yahoo Finance symbol convention for Chinese A-share listed companies:
-\url{https://finance.yahoo.com/}
+Ticker symbols use common Shanghai and Shenzhen suffixes and can be converted
+by \code{get_Ashare_data()} for AKShare downloads.
 }
 
 \examples{
