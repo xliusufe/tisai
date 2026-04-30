@@ -19,6 +19,7 @@ The package includes the following datasets:
 - `gtemp.month`: Global temperature monthly data
 - `lap`: LAP data
 
+
 ## Usage
 
 To load the package and access the datasets:
@@ -30,8 +31,11 @@ data(Hare)
 data(Lynx)
 data(gtemp.month)
 data(lap)
+
+CNmarket <- get_CNmarket_data(from = "2024-01-02", to = "2024-01-10")
+head(CNmarket)
 ```
 
 ## License
 
-GPL (>=2)# tisai
+GPL (>=2)

@@ -49,7 +49,7 @@ Users may also provide additional or alternative FRED series IDs through
 the \code{series} argument.
 
 The function downloads each series from FRED via the public CSV endpoint:
-\code{https://fred.stlouisfed.org/graph/fredgraph.csv?id=SERIES_ID}.
+\verb{https://fred.stlouisfed.org/graph/fredgraph.csv?id=SERIES_ID}.
 
 Since different series may have different release calendars or missing dates,
 the downloaded data are merged by \code{date}. If \code{na_rm = TRUE}, only dates with
@@ -63,11 +63,13 @@ The returned object includes the following attributes:
 }
 }
 \section{Copyright and data source note}{
+
 This function downloads data from FRED for educational and research use.
 FRED aggregates series from different original providers. Users should check
 the original source and licensing terms of each selected series before
 redistributing the data in books, packages, or other published materials.
 }
+
 \examples{
 \dontrun{
 USmarket <- get_USmarket_data()
@@ -75,7 +77,7 @@ head(USmarket)
 
 USmarket2 <- get_USmarket_data(
   from = "2020-01-01",
-  to = "2024-12-31"
+  to   = "2024-12-31"
 )
 
 USmarket3 <- get_USmarket_data(
@@ -91,4 +93,5 @@ USmarket4 <- get_USmarket_data(
   save_path = "USmarket.rda"
 )
 }
+
 }

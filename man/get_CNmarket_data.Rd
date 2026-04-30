@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_CNmarket_data.r
 \name{get_CNmarket_data}
 \alias{get_CNmarket_data}
-\title{Download Chinese financial market data from Yahoo Finance}
+\title{Download Chinese financial market data from AKShare}
 \usage{
 get_CNmarket_data(from = "2018-01-01", to = "2025-12-31", save_path = NULL)
 }
@@ -18,33 +18,57 @@ the resulting data object as an \code{.rda} file. If \code{NULL}, the data are n
 saved to disk.}
 }
 \value{
-A data frame containing aligned daily adjusted closing prices for
-the selected Chinese and related financial market series. The first column
-is \code{date}, followed by the downloaded market variables.
+A data frame containing aligned daily closing prices for selected
+Chinese and related financial market series. The first column is \code{date},
+followed by \code{shanghai}, \code{shenzhen}, \code{hs300}, \code{hsi}, and \code{usd_cny}.
 }
 \description{
-This function downloads daily adjusted closing prices for major Chinese
-financial market indices and related financial variables from Yahoo Finance,
-aligns trading dates across markets, and returns a data frame.
+This function downloads daily prices for major Chinese and related
+financial market series using AKShare, aligns trading dates across
+markets, and returns a data frame.
 }
 \details{
-The default series include the Shanghai Composite Index, Shenzhen Component
-Index, CSI 300 Index, Hang Seng Index, and the USD/CNY exchange rate.
-
-The function retrieves market data from Yahoo Finance via
-\code{quantmod::getSymbols()}. Since different markets may have different trading
-calendars, the downloaded series are aligned by date using inner joins, so
-that only common trading days are retained.
-
-The default symbols are:
+The default series are:
 \describe{
-\item{shanghai}{Shanghai Composite Index (\verb{000001.SS})}
-\item{shenzhen}{Shenzhen Component Index (\verb{399001.SZ})}
-\item{hs300}{CSI 300 Index (\verb{000300.SS})}
-\item{hsi}{Hang Seng Index (\verb{^HSI})}
-\item{usd_cny}{USD/CNY exchange rate (\code{CNY=X})}
+\item{shanghai}{Shanghai Composite Index, downloaded with AKShare symbol
+\code{sh000001}}
+\item{shenzhen}{Shenzhen Component Index, downloaded with AKShare symbol
+\code{sz399001}}
+\item{hs300}{CSI 300 Index, downloaded with AKShare symbol \code{sh000300}}
+\item{hsi}{Hang Seng Index, downloaded with AKShare symbol \code{HSI}}
+\item{usd_cny}{USD/CNY exchange rate from the Bank of China quotation
+interface}
 }
+
+For mainland China stock indices, the function first uses the Eastmoney
+index historical data interface through AKShare and falls back to the
+Tencent index historical data interface if the Eastmoney request fails. For
+the Hang Seng Index, it uses the Sina Hong Kong index historical data
+interface. For the USD/CNY exchange rate, it uses the historical Bank of
+China RMB quotation interface and takes the central parity rate when
+available; otherwise it falls back to other Bank of China quotation columns
+in the downloaded data.
+
+Since different markets may have different trading calendars, the downloaded
+series are aligned by date using inner joins, so that only common trading
+days are retained.
 }
+\section{Dependencies}{
+
+This function requires the R package \code{reticulate} and the Python package
+\code{akshare}. If AKShare is not available in the active Python environment,
+install it with \code{reticulate::py_install("akshare")} or \verb{pip install akshare -U}.
+}
+
+\section{Disclaimer}{
+
+This function is for educational and research purposes only. The data are
+retrieved from public financial data sources through AKShare. This package
+and its authors have no affiliation with AKShare, Eastmoney, Sina Finance,
+Bank of China, or any other data provider. Users should refer to the terms
+of service of the corresponding data sources.
+}
+
 \examples{
 \dontrun{
 library(tisai)
